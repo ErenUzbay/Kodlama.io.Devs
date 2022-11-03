@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllTechnologyResponse {
+	private int technologyId;
 	private String technologyName;
 	private String languageName;
 }

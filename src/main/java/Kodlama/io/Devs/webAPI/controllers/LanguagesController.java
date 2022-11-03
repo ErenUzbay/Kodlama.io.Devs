@@ -3,8 +3,10 @@ package Kodlama.io.Devs.webAPI.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,13 +30,13 @@ public class LanguagesController {
 		this.languageService = languageService;
 	}
 
-	@GetMapping("getall")
-	public List<GetAllLanguagesResponse> getall() {
+	@GetMapping("findall")
+	public List<GetAllLanguagesResponse> findAll() {
 		return this.languageService.findAll();
 	}
 
-	@GetMapping("getbyid")
-	public GetLanguageDetailsResponse getbyid(GetLanguageDetailsRequest languageId) {
+	@GetMapping("findbyid")
+	public GetLanguageDetailsResponse findById(GetLanguageDetailsRequest languageId) {
 		return this.languageService.findById(languageId);
 	}
 
@@ -43,12 +45,12 @@ public class LanguagesController {
 		this.languageService.add(createLanguageRequest);
 	}
 
-	@PostMapping("delete")
+	@DeleteMapping("delete")
 	public void delete(DeleteLanguageRequest deleteLanguageRequest) {
 		this.languageService.delete(deleteLanguageRequest);
 	}
 
-	@PostMapping("update")
+	@PutMapping("update")
 	public void update(UpdateLanguageRequest updateLanguageRequest) {
 		this.languageService.update(updateLanguageRequest);
 	}

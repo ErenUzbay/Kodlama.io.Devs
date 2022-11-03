@@ -13,7 +13,7 @@ public interface LanguageService {
 	void add(CreateLanguageRequest createLanguageRequest);
 	void delete(DeleteLanguageRequest deleteLanguageRequest);
 	void update(UpdateLanguageRequest updateLanguageRequest);
-	
+
 	GetLanguageDetailsResponse findById(GetLanguageDetailsRequest getLanguageDetailsRequest);
 	List<GetAllLanguagesResponse> findAll();
 }

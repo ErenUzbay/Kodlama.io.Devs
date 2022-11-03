@@ -9,6 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeleteTechnologyRequest {
+public class UpdateLanguageForTechnology {
 	private int technologyId;
+	private String technologyName;
+	private int languageId;
 }

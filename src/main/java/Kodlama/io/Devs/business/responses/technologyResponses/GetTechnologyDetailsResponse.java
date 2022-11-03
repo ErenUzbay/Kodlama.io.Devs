@@ -1,4 +1,4 @@
-package Kodlama.io.Devs.business.requests.technologyRequests;
+package Kodlama.io.Devs.business.responses.technologyResponses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeleteTechnologyRequest {
+public class GetTechnologyDetailsResponse {
 	private int technologyId;
+	private String technologyName;
+	private String languageName;
 }
