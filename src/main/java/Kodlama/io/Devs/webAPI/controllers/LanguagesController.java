@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Kodlama.io.Devs.business.abstracts.LanguageService;
-import Kodlama.io.Devs.entities.concretes.Language;
+import Kodlama.io.Devs.business.requests.languageRequests.CreateLanguageRequest;
+import Kodlama.io.Devs.business.requests.languageRequests.DeleteLanguageRequest;
+import Kodlama.io.Devs.business.requests.languageRequests.GetLanguageDetailsRequest;
+import Kodlama.io.Devs.business.requests.languageRequests.UpdateLanguageRequest;
+import Kodlama.io.Devs.business.responses.languageResponses.GetAllLanguagesResponse;
+import Kodlama.io.Devs.business.responses.languageResponses.GetLanguageDetailsResponse;
 
 @RestController
 @RequestMapping("/api/languages/")
@@ -22,26 +27,29 @@ public class LanguagesController {
 		super();
 		this.languageService = languageService;
 	}
-	
+
 	@GetMapping("getall")
-	public List<Language> getall() {
-		return this.languageService.getAll();
+	public List<GetAllLanguagesResponse> getall() {
+		return this.languageService.findAll();
 	}
+
 	@GetMapping("getbyid")
-	public Language getbyid(int languageId) {
-		return this.languageService.getById(languageId);
+	public GetLanguageDetailsResponse getbyid(GetLanguageDetailsRequest languageId) {
+		return this.languageService.findById(languageId);
 	}
-	
+
 	@PostMapping("add")
-	public void add(Language language) {
-		this.languageService.add(language);
+	public void add(CreateLanguageRequest createLanguageRequest) {
+		this.languageService.add(createLanguageRequest);
 	}
+
 	@PostMapping("delete")
-	public void delete(int id) {
-		this.languageService.delete(id);
+	public void delete(DeleteLanguageRequest deleteLanguageRequest) {
+		this.languageService.delete(deleteLanguageRequest);
 	}
+
 	@PostMapping("update")
-	public void update(Language language) {
-		this.languageService.update(language);
+	public void update(UpdateLanguageRequest updateLanguageRequest) {
+		this.languageService.update(updateLanguageRequest);
 	}
 }
